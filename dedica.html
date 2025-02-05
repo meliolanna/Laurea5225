@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La tua dedica</title>
+</head>
+<body>
+    <h1 id="dedicaTitle"></h1>
+    <p id="dedicaMessage"></p>
+    <a href="index.html">Torna indietro</a>
+
+    <script>
+        // Funzione per ottenere i parametri dall'URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Recupera i dati dall'URL
+        const name = getQueryParam("name");
+        const message = getQueryParam("message");
+
+        // Mostra la dedica nella pagina
+        document.getElementById("dedicaTitle").innerText = `Dedica per ${name}`;
+        document.getElementById("dedicaMessage").innerText = message;
+    </script>
+</body>
+</html>
