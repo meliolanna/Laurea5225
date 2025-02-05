@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dediche</title>
+</head>
+<body>
+    <h1>Inserisci il tuo nome</h1>
+    <input type="text" id="nameInput" placeholder="Il tuo nome">
+    <button onclick="cercaDedica()">Invia</button>
+
+    <script>
+        // Dizionario con le dediche
+        const dediche = {
+            "Marco": "Congratulazioni per la laurea, Marco! 🎉",
+            "Anna": "Bravissima Anna! Sei stata fantastica! 😊",
+            "Luca": "Luca, hai fatto un lavoro incredibile! 👏"
+        };
+
+        function cercaDedica() {
+            const name = document.getElementById("nameInput").value.trim();
+            if (!name) {
+                alert("Inserisci un nome!");
+                return;
+            }
+
+            // Controlla se il nome esiste nella lista
+            let message = dediche[name] || `Grazie ${name}! 🎊`;
+
+            // Reindirizza alla pagina della dedica con i dati nell'URL
+            window.location.href = `dedica.html?name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}`;
+        }
+    </script>
+</body>
+</html>
